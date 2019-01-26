@@ -25,34 +25,25 @@ const getTask = async (req, res) => {
         errors: errors.array()
       })
   }
-  try {
-    const response = await Task.findOne({
-      _id: new mongoose.Types.ObjectId(req.params.taskId),
-      deletedAt: null
-    })
+  const response = await Task.findOne({
+    _id: new mongoose.Types.ObjectId(req.params.taskId),
+    deletedAt: null
+  })
 
-    if (response)
-      return res
-        .status(200)
-        .json({
-          id: response._id,
-          subject: response.subject,
-          detail: response.detail,
-          status: response.status
-        })
+  if (response)
     return res
-      .status(404)
+      .status(200)
       .json({
-        message: 'Not found',
+        id: response._id,
+        subject: response.subject,
+        detail: response.detail,
+        status: response.status
       })
-  } catch (e) {
-    return res
-      .status(400)
-      .json({
-        message: e.message
-      })
-  }
-  
+  return res
+    .status(404)
+    .json({
+      message: 'Not found',
+    })
 }
 
 const createTask = async (req, res) => {
@@ -92,38 +83,30 @@ const updateTask = async (req, res) => {
         errors: errors.array()
       })
   }
-  try {
-    const response = await Task.findOneAndUpdate({
-      _id: new mongoose.Types.ObjectId(req.params.taskId),
-      deletedAt: null
-    }, {
-      subject: req.body.subject,
-      detail: req.body.detail ? req.body.detail : '',
-      updatedAt: new Date()
-    }, {
-      new: true
+  const response = await Task.findOneAndUpdate({
+    _id: new mongoose.Types.ObjectId(req.params.taskId),
+    deletedAt: null
+  }, {
+    subject: req.body.subject,
+    detail: req.body.detail ? req.body.detail : '',
+    updatedAt: new Date()
+  }, {
+    new: true
+  })
+  if (response)
+    return res
+      .status(200)
+      .json({
+        id: response._id,
+        subject: response.subject,
+        detail: response.detail,
+        status: response.status
+      })
+  return res
+    .status(404)
+    .json({
+      message: 'Not found',
     })
-    if (response)
-      return res
-        .status(200)
-        .json({
-          id: response._id,
-          subject: response.subject,
-          detail: response.detail,
-          status: response.status
-        })
-    return res
-      .status(404)
-      .json({
-        message: 'Not found',
-      })
-  } catch (e) {
-    return res
-      .status(400)
-      .json({
-        message: e.message
-      })
-  }
 }
 
 const setStatusTask = async (req, res) => {
@@ -136,37 +119,29 @@ const setStatusTask = async (req, res) => {
         errors: errors.array()
       })
   }
-  try {
-    const response = await Task.findOneAndUpdate({
-      _id: new mongoose.Types.ObjectId(req.params.taskId),
-      deletedAt: null
-    }, {
-      status: Number(req.body.status),
-      updatedAt: new Date()
-    }, {
-      new: true
+  const response = await Task.findOneAndUpdate({
+    _id: new mongoose.Types.ObjectId(req.params.taskId),
+    deletedAt: null
+  }, {
+    status: Number(req.body.status),
+    updatedAt: new Date()
+  }, {
+    new: true
+  })
+  if (response)
+    return res
+      .status(200)
+      .json({
+        id: response._id,
+        subject: response.subject,
+        detail: response.detail,
+        status: response.status
+      })
+  return res
+    .status(404)
+    .json({
+      message: 'Not found',
     })
-    if (response)
-      return res
-        .status(200)
-        .json({
-          id: response._id,
-          subject: response.subject,
-          detail: response.detail,
-          status: response.status
-        })
-    return res
-      .status(404)
-      .json({
-        message: 'Not found',
-      })
-  } catch (e) {
-    return res
-      .status(400)
-      .json({
-        message: e.message
-      })
-  }
 }
 
 const deleteTask = async (req, res) => {
@@ -179,30 +154,22 @@ const deleteTask = async (req, res) => {
         errors: errors.array()
       })
   }
-  try {
-    const response = await Task.findOneAndUpdate({
-      _id: new mongoose.Types.ObjectId(req.params.taskId),
-      deletedAt: null
-    }, {
-      updatedAt: new Date(),
-      deletedAt: new Date()
+  const response = await Task.findOneAndUpdate({
+    _id: new mongoose.Types.ObjectId(req.params.taskId),
+    deletedAt: null
+  }, {
+    updatedAt: new Date(),
+    deletedAt: new Date()
+  })
+  if (response)
+    return res
+      .status(200)
+      .json()
+  return res
+    .status(404)
+    .json({
+      message: 'Not found',
     })
-    if (response)
-      return res
-        .status(200)
-        .json()
-    return res
-      .status(404)
-      .json({
-        message: 'Not found',
-      })
-  } catch (e) {
-    return res
-      .status(400)
-      .json({
-        message: e.message
-      })
-  }
 }
 
 export {

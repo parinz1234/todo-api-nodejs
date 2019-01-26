@@ -17,6 +17,6 @@ app
   .use('/api/v1/tasks', taskRouter)
   .all('*', (req, res) => res.status(501).json())
 
-app.listen(process.env.DB_HOST, () => {
-  console.log(`server running on port ${process.env.DB_HOST}`)
+app.listen(process.env.API_PORT, () => {
+  console.log(`server running on port ${process.env.API_PORT}`)
 })
