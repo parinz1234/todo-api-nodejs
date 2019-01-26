@@ -12,7 +12,7 @@ At `26/01/2019` I'm using `Docker version 18.09.0, build 4d60db4` and `docker-co
 
 ## API Document
 
-* ##### View all item in the list
+* ### View all item in the list
   __URL:__ `/api/v1/tasks`<br>
   __Method:__ `GET`<br>
   __Content-type:__ `application/json`<br>
@@ -35,7 +35,7 @@ At `26/01/2019` I'm using `Docker version 18.09.0, build 4d60db4` and `docker-co
       },
     ]
   ```
-* ##### View a single task in the list
+* ### View a single task in the list
   __URL:__ `/api/v1/tasks/:taskId`<br>
   __Method:__ `GET`<br>
   __Content-type:__ `application/json`<br>
@@ -79,7 +79,7 @@ At `26/01/2019` I'm using `Docker version 18.09.0, build 4d60db4` and `docker-co
       "message": "Not found"
     }
   ```
-* ##### Add a task to the list
+* ### Add a task to the list
   __URL:__ `/api/v1/tasks`<br>
   __Method:__ `POST`<br>
   __Content-type:__ `application/json`<br>
@@ -123,7 +123,7 @@ At `26/01/2019` I'm using `Docker version 18.09.0, build 4d60db4` and `docker-co
       ]
     }
   ```
-* ##### edit existing task
+* ### edit existing task
   __URL:__ `/api/v1/tasks/:taskId`<br>
   __Method:__ `PUT`<br>
   __Content-type:__ `application/json`<br>
@@ -195,7 +195,7 @@ At `26/01/2019` I'm using `Docker version 18.09.0, build 4d60db4` and `docker-co
       ]
     }
   ```
-* ##### Set the task status
+* ### Set the task status
   __URL:__ `/api/v1/tasks/:taskId/status`<br>
   __Method:__ `PUT`<br>
   __Content-type:__ `application/json`<br>
@@ -260,7 +260,7 @@ At `26/01/2019` I'm using `Docker version 18.09.0, build 4d60db4` and `docker-co
     ]
   }
   ```
-* ##### Delete a task from the list
+* ### Delete a task from the list
   __URL:__ `/api/v1/tasks/:taskId`<br>
   __Method:__ `DELETE`<br>
   __Content-type:__ `application/json`<br>
