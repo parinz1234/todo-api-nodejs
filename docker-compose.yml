@@ -1,6 +1,12 @@
 version: '3'
 services:
+  api:
+    build: .
+    ports:
+      - "3000:3000"
+    links:
+      - db
   db:
     ports:
-      - 27017:27017
+      - "27017:27017"
     image: mongo:3.4
