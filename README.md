@@ -57,8 +57,9 @@ At `26/01/2019` I'm using `Docker version 18.09.0, build 4d60db4` and `docker-co
     }
   ```
   __Errors response:__
+  If `taskId` is not valid.
   ```
-  Status code: 422
+  Status code: 400
   Response data:
     {
       "message": "Invalid params",
@@ -72,6 +73,7 @@ At `26/01/2019` I'm using `Docker version 18.09.0, build 4d60db4` and `docker-co
       ]
     }
   ```
+  If a task not found.
   ```
   Status code: 404
   Response data:
@@ -94,6 +96,14 @@ At `26/01/2019` I'm using `Docker version 18.09.0, build 4d60db4` and `docker-co
   ```
   __Success response:__
   ```
+  Request body:
+  {
+    "subject": "example subject",
+    "detail": "this is description"
+  }
+  ```
+
+  ```
   Status code: 201
   Response data:
     {
@@ -104,8 +114,15 @@ At `26/01/2019` I'm using `Docker version 18.09.0, build 4d60db4` and `docker-co
     }
   ```
   __Errors response:__
+    If `subject` is empty or not string.
   ```
-  Status code: 422
+  Request body:
+  {
+
+  }
+  ```
+  ```
+  Status code: 400
   Response data:
     {
       "message": "Invalid params",
@@ -144,6 +161,13 @@ At `26/01/2019` I'm using `Docker version 18.09.0, build 4d60db4` and `docker-co
   ```
   __Success response:__
   ```
+  Request body:
+  {
+    "subject": "example subject edit",
+    "detail": "this is description edit",
+  }
+  ```
+  ```
   Status code: 200
   Response data:
     {
@@ -154,6 +178,7 @@ At `26/01/2019` I'm using `Docker version 18.09.0, build 4d60db4` and `docker-co
     }
   ```
   __Errors response:__
+  If a task not found.
   ```
   Status code: 404
   Response data:
@@ -161,8 +186,9 @@ At `26/01/2019` I'm using `Docker version 18.09.0, build 4d60db4` and `docker-co
       "message": "Not found"
     }
   ```
+  If `taskId` is not valid.
   ```
-  Status code: 422
+  Status code: 400
   Response data:
     {
       "message": "Invalid params",
@@ -176,8 +202,14 @@ At `26/01/2019` I'm using `Docker version 18.09.0, build 4d60db4` and `docker-co
       ]
     }
   ```
+  If `subject` is empty or not string.
   ```
-  Status code: 422
+  Request body:
+  {
+  }
+  ```
+  ```
+  Status code: 400
   Response data:
     {
       "message": "Invalid params",
@@ -213,6 +245,12 @@ At `26/01/2019` I'm using `Docker version 18.09.0, build 4d60db4` and `docker-co
   ```
   __Success response:__
   ```
+  Request body:
+  {
+    "status": 1
+  }
+  ```
+  ```
   Status code: 200
   Response data:
     {
@@ -223,6 +261,7 @@ At `26/01/2019` I'm using `Docker version 18.09.0, build 4d60db4` and `docker-co
     }
   ```
   __Errors response:__
+  If a task not found.
   ```
   Status code: 404
   Response data:
@@ -230,8 +269,9 @@ At `26/01/2019` I'm using `Docker version 18.09.0, build 4d60db4` and `docker-co
       "message": "Not found"
     }
   ```
+  If `taskId` is not valid.
   ```
-  Status code: 422
+  Status code: 400
   Response data:
     {
       "message": "Invalid params",
@@ -245,8 +285,9 @@ At `26/01/2019` I'm using `Docker version 18.09.0, build 4d60db4` and `docker-co
       ]
     }
   ```
+  If `status` is not be `1` or `0`.
   ```
-  Status code: 422
+  Status code: 400
   Response data:
   {
     "message": "Invalid parameter or body",
@@ -276,6 +317,7 @@ At `26/01/2019` I'm using `Docker version 18.09.0, build 4d60db4` and `docker-co
   Response data: -
   ```
   __Errors response:__
+  If a task not found.
   ```
   Status code: 404
   Response data:
@@ -283,8 +325,9 @@ At `26/01/2019` I'm using `Docker version 18.09.0, build 4d60db4` and `docker-co
       "message": "Not found"
     }
   ```
+  If `taskId` is not valid.
   ```
-  Status code: 422
+  Status code: 400
   Response data:
     {
       "message": "Invalid params",
@@ -294,25 +337,6 @@ At `26/01/2019` I'm using `Docker version 18.09.0, build 4d60db4` and `docker-co
             "param": "taskId",
             "value": "1",
             "msg": "taskId is invalid"
-        }
-      ]
-    }
-  ```
-  ```
-  Status code: 422
-  Response data:
-    {
-      "message": "Invalid params",
-      "errors": [
-        {
-          "location": "body",
-          "param": "subject",
-          "msg": "subject is required"
-        },
-        {
-          "location": "body",
-          "param": "subject",
-          "msg": "subject must be string"
         }
       ]
     }

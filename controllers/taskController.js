@@ -19,7 +19,7 @@ const getTask = async (req, res) => {
   const errors = validationResult(req)
   if (!errors.isEmpty()) {
     return res
-      .status(422)
+      .status(400)
       .json({
         message: 'Invalid body',
         errors: errors.array()
@@ -50,7 +50,7 @@ const createTask = async (req, res) => {
   const errors = validationResult(req)
   if (!errors.isEmpty()) {
     return res
-      .status(422)
+      .status(400)
       .json({
         message: 'Invalid body',
         errors: errors.array()
@@ -77,7 +77,7 @@ const updateTask = async (req, res) => {
   const errors = validationResult(req)
   if (!errors.isEmpty()) {
     return res
-      .status(422)
+      .status(400)
       .json({
         message: 'Invalid params or body',
         errors: errors.array()
@@ -113,7 +113,7 @@ const setStatusTask = async (req, res) => {
   const errors = validationResult(req)
   if (!errors.isEmpty()) {
     return res
-      .status(422)
+      .status(400)
       .json({
         message: 'Invalid parameter or body',
         errors: errors.array()
@@ -148,7 +148,7 @@ const deleteTask = async (req, res) => {
   const errors = validationResult(req)
   if (!errors.isEmpty()) {
     return res
-      .status(422)
+      .status(400)
       .json({
         message: 'Invalid parameter',
         errors: errors.array()
