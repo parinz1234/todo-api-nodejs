@@ -6,16 +6,16 @@ To start API using command:
   docker-compose up
 ```
 
-Docker will build rest API application image then start `api` and `db` service. Root URL is `http://localhost:3000`
+Docker will build rest API application image then start `api` and `db` service. <br>Root URL is `http://localhost:3000`
 
 At `26/01/2019` I'm using `Docker version 18.09.0, build 4d60db4` and `docker-compose version 1.21.2, build a133471`
 
 ## API Document
 
-* ##### View all item in the list
-  __URL:__ `/api/v1/tasks`
-  __Method:__ `GET`
-  __Content-type:__ `application/json`
+* ### View all item in the list
+  __URL:__ `/api/v1/tasks`<br>
+  __Method:__ `GET`<br>
+  __Content-type:__ `application/json`<br>
   __Success response:__
   ```
   Status code: 200
@@ -35,10 +35,10 @@ At `26/01/2019` I'm using `Docker version 18.09.0, build 4d60db4` and `docker-co
       },
     ]
   ```
-* ##### View a single task in the list
-  __URL:__ `/api/v1/tasks/:taskId`
-  __Method:__ `GET`
-  __Content-type:__ `application/json`
+* ### View a single task in the list
+  __URL:__ `/api/v1/tasks/:taskId`<br>
+  __Method:__ `GET`<br>
+  __Content-type:__ `application/json`<br>
   __URL params:__
   ```
     Required:
@@ -81,10 +81,10 @@ At `26/01/2019` I'm using `Docker version 18.09.0, build 4d60db4` and `docker-co
       "message": "Not found"
     }
   ```
-* ##### Add a task to the list
-  __URL:__ `/api/v1/tasks`
-  __Method:__ `POST`
-  __Content-type:__ `application/json`
+* ### Add a task to the list
+  __URL:__ `/api/v1/tasks`<br>
+  __Method:__ `POST`<br>
+  __Content-type:__ `application/json`<br>
   __Body params:__
   ```
     Required:
@@ -140,10 +140,10 @@ At `26/01/2019` I'm using `Docker version 18.09.0, build 4d60db4` and `docker-co
       ]
     }
   ```
-* ##### edit existing task
-  __URL:__ `/api/v1/tasks/:taskId`
-  __Method:__ `PUT`
-  __Content-type:__ `application/json`
+* ### edit existing task
+  __URL:__ `/api/v1/tasks/:taskId`<br>
+  __Method:__ `PUT`<br>
+  __Content-type:__ `application/json`<br>
   __URL params:__
   ```
     Required:
@@ -227,10 +227,10 @@ At `26/01/2019` I'm using `Docker version 18.09.0, build 4d60db4` and `docker-co
       ]
     }
   ```
-* ##### Set the task status
-  __URL:__ `/api/v1/tasks/:taskId/status`
-  __Method:__ `PUT`
-  __Content-type:__ `application/json`
+* ### Set the task status
+  __URL:__ `/api/v1/tasks/:taskId/status`<br>
+  __Method:__ `PUT`<br>
+  __Content-type:__ `application/json`<br>
   __URL params:__
   ```
     Required:
@@ -301,10 +301,10 @@ At `26/01/2019` I'm using `Docker version 18.09.0, build 4d60db4` and `docker-co
     ]
   }
   ```
-* ##### Delete a task from the list
-  __URL:__ `/api/v1/tasks/:taskId`
-  __Method:__ `DELETE`
-  __Content-type:__ `application/json`
+* ### Delete a task from the list
+  __URL:__ `/api/v1/tasks/:taskId`<br>
+  __Method:__ `DELETE`<br>
+  __Content-type:__ `application/json`<br>
   __URL params:__
   ```
     Required:
